@@ -1,13 +1,17 @@
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
-import {Body, Button, Card, CardItem, Icon, Left, Right, Text, Thumbnail} from 'native-base';
+import {
+  Body, Button, Card, CardItem, Icon, Left, Right, Text, Thumbnail,
+} from 'native-base';
+
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../constants/config';
 
-import { ArticlesForm, ArticlesList, ArticlesSingle, GamesList, GamesSingle } from '../containers';
+import {
+  ArticlesForm, ArticlesList, ArticlesSingle, GamesList, GamesSingle,
+} from '../containers';
 
 import AboutComponent from '../components/About';
-import {FlatList} from "react-native";
 
 const Index = (
   <Stack hideNavBar>
@@ -37,7 +41,15 @@ const Index = (
           <Scene hideNavBar key="gamesList" component={GamesList} />
           <Scene key="gamesSingle" component={GamesSingle} />
         </Stack>
-
+        <Stack
+          key="codesList"
+          title="Codes List"
+          icon={() => <Icon name="ios-gift" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
+        >
+          <Scene key="articlesList" component={ArticlesList} />
+          <Scene key="articlesSingle" component={ArticlesSingle} />
+        </Stack>
         <Stack
           key="articlesList"
           title="Articles List"

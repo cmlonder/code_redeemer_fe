@@ -1,8 +1,8 @@
 import Api from '../lib/api';
 import HandleErrorMessage from '../lib/format-error-messages';
 import initialState from '../store/games';
-import Config from "../constants/config";
-import {errorMessages} from "../constants/messages";
+import Config from '../constants/config';
+import { errorMessages } from '../constants/messages';
 
 /**
  * Transform the endpoint data structure into our redux store format
@@ -39,7 +39,7 @@ export default {
       const { games = {} } = rootState;
 
       try {
-        const response = await Api.get(`/games`);
+        const response = await Api.get('/games');
         const { data, headers } = response;
 
         return !data || data.length < 1
